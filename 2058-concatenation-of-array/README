@@ -1,0 +1,20 @@
+🎯 Problem Explanation:
+We are given a array or in python we call it a list.
+The goal is to concatenate/combine/add the list with itself, meaning if the input array is [1, 2, 3], the output should be [1, 2, 3, 1, 2, 3].
+
+🔍 Methods To Solve This Problem:
+This post covers five different methods to concatenate an array with itself in Python. Each method is explained in a beginner-friendly way.
+
+Using Loop and Append Method
+Using Loop and Changing Element Value
+Using Extend Method
+Using + Operator
+Using * Operator
+Method 1: Using Loop and Append Method
+In this method, we use a loop to add each element from the original list to a new list twice.
+
+🧠 Approach:
+Start with an empty list called result.
+Loop through the original list and append each element to result.
+Loop through the original list again and append each element to result.
+Return the result list.
