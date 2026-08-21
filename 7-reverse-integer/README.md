@@ -1,32 +1,55 @@
-<h2><a href="https://leetcode.com/problems/reverse-integer">Reverse Integer</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Given a signed 32-bit integer <code>x</code>, return <code>x</code><em> with its digits reversed</em>. If reversing <code>x</code> causes the value to go outside the signed 32-bit integer range <code>[-2<sup>31</sup>, 2<sup>31</sup> - 1]</code>, then return <code>0</code>.</p>
+# LeetCode 1929: Concatenation of Array
 
-<p><strong>Assume the environment does not allow you to store 64-bit integers (signed or unsigned).</strong></p>
+## 🎯 Problem Explanation
+We are given an integer array (or a list in Python). The goal is to create a new array that is twice the length of the original array, where the elements of the original array are repeated/concatenated back-to-back.
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+### Example:
+* **Input:** `nums = [1, 2, 3]`
+* **Output:** `[1, 2, 3, 1, 2, 3]`
 
-<pre>
-<strong>Input:</strong> x = 123
-<strong>Output:</strong> 321
-</pre>
+---
 
-<p><strong class="example">Example 2:</strong></p>
+## 🔍 Method 1: Using Loop and Append
+In this beginner-friendly method, we create a fresh list and use loops to manually grab each element from the original list and append it to our new list. 
 
-<pre>
-<strong>Input:</strong> x = -123
-<strong>Output:</strong> -321
-</pre>
+### 🧠 Approach:
+1. Create an empty list called `result`.
+2. Run a loop through the original list `nums` and `append()` each element to `result` for the first half.
+3. Run a second loop through `nums` and `append()` each element again to fill the second half.
+4. Return the completed `result` list.
 
-<p><strong class="example">Example 3:</strong></p>
+---
 
-<pre>
-<strong>Input:</strong> x = 120
-<strong>Output:</strong> 21
-</pre>
+## 💻 Python Code Implementation
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+```python
+class Solution:
+    def getConcatenation(self, nums: list[int]) -> list[int]:
+        result = []
+        
+        # First pass: Copy the original list elements
+        for num in nums:
+            result.append(num)
+            
+        # Second pass: Copy them again to concatenate
+        for num in nums:
+            result.append(num)
+            
+        return result
 
-<ul>
-	<li><code>-2<sup>31</sup> &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>
-</ul>
+# --- Local Testing ---
+if __name__ == "__main__":
+    obj = Solution()
+    test_case = [1, 2, 1]
+    
+    output = obj.getConcatenation(test_case)
+    print(f"Input:  {test_case}")
+    print(f"Output: {output}")  # Expected: [1, 2, 1, 1, 2, 1]
+```
+
+---
+
+## 📊 Complexity Analysis
+
+* **Time Complexity:** $O(n)$ — We iterate through the original array of size $n$ exactly twice, making it a linear time operation.
+* **Space Complexity:** $O(n)$ — We create a new `result` list that grows relative to the size of the input array to hold $2n$ elements.
