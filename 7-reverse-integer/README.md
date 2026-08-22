@@ -1,55 +1,40 @@
-# LeetCode 1929: Concatenation of Array
+# Reverse Integer
 
-## 🎯 Problem Explanation
-We are given an integer array (or a list in Python). The goal is to create a new array that is twice the length of the original array, where the elements of the original array are repeated/concatenated back-to-back.
+A logical approach to reversing the digits of a 32-bit signed integer using pure mathematical operations. 
 
-### Example:
-* **Input:** `nums = [1, 2, 3]`
-* **Output:** `[1, 2, 3, 1, 2, 3]`
+## Overview
 
----
+The goal of this algorithm is to take an integer input and reverse the order of its digits (e.g., turning `123` into `321`, or `-456` into `-654`). 
 
-## 🔍 Method 1: Using Loop and Append
-In this beginner-friendly method, we create a fresh list and use loops to manually grab each element from the original list and append it to our new list. 
+A key constraint in this classic problem is the **32-bit environment limit**. If the reversed integer exceeds the standard 32-bit signed integer range of $[-2^{31}, 2^{31} - 1]$, the function must return `0` to simulate integer overflow.
 
-### 🧠 Approach:
-1. Create an empty list called `result`.
-2. Run a loop through the original list `nums` and `append()` each element to `result` for the first half.
-3. Run a second loop through `nums` and `append()` each element again to fill the second half.
-4. Return the completed `result` list.
+## The Approach
 
----
+While it is tempting to convert the integer into a string, reverse the string, and parse it back into an integer, doing so consumes extra memory and often bypasses the core algorithmic challenge. 
 
-## 💻 Python Code Implementation
+Instead, this solution relies entirely on arithmetic operations—specifically **modulo** and **floor division**—to peel digits off the original number and construct the new reversed number one digit at a time.
 
-```python
-class Solution:
-    def getConcatenation(self, nums: list[int]) -> list[int]:
-        result = []
-        
-        # First pass: Copy the original list elements
-        for num in nums:
-            result.append(num)
-            
-        # Second pass: Copy them again to concatenate
-        for num in nums:
-            result.append(num)
-            
-        return result
+### Step-by-Step Breakdown
 
-# --- Local Testing ---
-if __name__ == "__main__":
-    obj = Solution()
-    test_case = [1, 2, 1]
-    
-    output = obj.getConcatenation(test_case)
-    print(f"Input:  {test_case}")
-    print(f"Output: {output}")  # Expected: [1, 2, 1, 1, 2, 1]
-```
+1. **Sign Extraction:** 
+   Because negative numbers can complicate modulo arithmetic, we first determine the sign of the input. We store a multiplier (`1` for positive, `-1` for negative) and then take the absolute value of the input. This standardizes the rest of the mathematical process.
 
----
+2. **Digit Extraction (Popping):** 
+   We process the standardized number in a loop until it reaches zero. In each iteration, we use the modulo operator (`% 10`) to extract the right-most digit. For example, `123 % 10` gives us `3`. 
+   
+3. **Number Reconstruction (Pushing):** 
+   To build the reversed number, we take our running total (which starts at 0), multiply it by 10 to shift its current digits one place to the left, and add our newly extracted digit. 
+   * *Iteration 1:* `0 * 10 + 3 = 3`
+   * *Iteration 2:* `3 * 10 + 2 = 32`
+   * *Iteration 3:* `32 * 10 + 1 = 321`
 
-## 📊 Complexity Analysis
+4. **Number Reduction:**
+   After extracting a digit, we use floor division (`// 10`) on our original number to remove that right-most digit (e.g., `123 // 10` becomes `12`), moving us closer to the end of the loop.
 
-* **Time Complexity:** $O(n)$ — We iterate through the original array of size $n$ exactly twice, making it a linear time operation.
-* **Space Complexity:** $O(n)$ — We create a new `result` list that grows relative to the size of the input array to hold $2n$ elements.
+5. **Sign Restoration and Overflow Validation:**
+   Once the loop finishes, we multiply the reconstructed number by our stored sign multiplier. Finally, we check if this result falls outside the safe 32-bit integer range ($-2,147,483,648$ to $2,147,483,647$). If it does, we return `0` to indicate an overflow; otherwise, we return the reversed number.
+
+## Complexity Analysis
+
+* **Time Complexity:** $O(\log_{10}(x))$. The number of iterations in our loop is equal to the number of digits in the input integer $x$. Since the number of digits scales logarithmically with the size of the number in base 10, the time complexity is logarithmic.
+* **Space Complexity:** $O(1)$. The algorithm is extremely memory-efficient. It does not allocate any arrays or strings, relying solely on a few integer variables to track the current state, regardless of how large the input number is.
