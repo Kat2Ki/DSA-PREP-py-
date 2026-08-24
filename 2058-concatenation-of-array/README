@@ -1,20 +1,76 @@
 🎯 Problem Explanation:
-We are given a array or in python we call it a list.
-The goal is to concatenate/combine/add the list with itself, meaning if the input array is [1, 2, 3], the output should be [1, 2, 3, 1, 2, 3].
 
-🔍 Methods To Solve This Problem:
-This post covers five different methods to concatenate an array with itself in Python. Each method is explained in a beginner-friendly way.
+We are given an array or, in Python, we call it a list.
 
-Using Loop and Append Method
-Using Loop and Changing Element Value
-Using Extend Method
-Using + Operator
-Using * Operator
+The goal is to concatenate/combine/add the list with itself.
+
+For example:
+
+Input:
+nums = [1, 2, 3]
+
+Output:
+[1, 2, 3, 1, 2, 3]
+
+The output contains the original list followed by the same list again.
+
+
+🔍 Method To Solve This Problem:
+
 Method 1: Using Loop and Append Method
-In this method, we use a loop to add each element from the original list to a new list twice.
+
 
 🧠 Approach:
-Start with an empty list called result.
-Loop through the original list and append each element to result.
-Loop through the original list again and append each element to result.
-Return the result list.
+
+1. Create an empty list called `result`.
+2. Loop through the original list.
+3. Append each element to `result`.
+4. Loop through the original list again.
+5. Append each element again.
+6. Return `result`.
+
+
+💻 MY ANSWER:
+
+class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        result = []
+
+        for i in nums:
+            result.append(i)
+
+        for i in nums:
+            result.append(i)
+
+        return result
+
+
+🔎 Example:
+
+Input:
+nums = [1, 2, 3]
+
+After first loop:
+result = [1, 2, 3]
+
+After second loop:
+result = [1, 2, 3, 1, 2, 3]
+
+Output:
+[1, 2, 3, 1, 2, 3]
+
+
+⏱️ TIME COMPLEXITY:
+O(n)
+
+💾 SPACE COMPLEXITY:
+O(n)
+
+🔑 PATTERN:
+Array / List Manipulation
+
+🐍 PYTHON CONCEPTS:
+• `for` loop
+• `append()`
+• Empty list `[]`
+• Returning a list
