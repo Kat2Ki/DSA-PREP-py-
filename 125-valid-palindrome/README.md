@@ -19,3 +19,37 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 </ul>
 
 
+
+💡 APPROACH:
+1. Create an empty list `clean`.
+2. Traverse every character in `s`.
+3. Check if it is alphanumeric using `isalnum()`.
+4. Convert it to lowercase using `lower()`.
+5. Store it in `clean`.
+6. Compare `clean` with `clean[::-1]`.
+7. If equal → return `True`.
+8. Otherwise → return `False`.
+
+💻 MY ANSWER:
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        clean = []
+
+        for li in s:
+            if li.isalnum():
+                clean.append(li.lower())
+
+        if clean == clean[::-1]:
+            return True
+        else:
+            return False
+
+⏱️ TIME: O(n)
+
+💾 SPACE: O(n)
+
+🔑 PATTERN:
+String + Palindrome
+
+
