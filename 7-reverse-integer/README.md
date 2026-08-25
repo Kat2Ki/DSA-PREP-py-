@@ -23,4 +23,49 @@
 	<li><code>-2<sup>31</sup> &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+## 🔄 Approach: Reverse Integer
+
+### 💡 Idea:
+
+* First, store the **sign** of the number (`positive` or `negative`) separately. ➕➖
+* Convert the number into its **absolute value** so we can reverse only the digits. 🔢
+* Extract the last digit using **modulo (`% 10`)**. 🎯
+* Add that digit to the reversed number:
+
+  ```
+  revn = revn * 10 + last_digit
+  ```
+* Remove the last digit from the original number using **integer division (`// 10`)**. ✂️
+* After reversing all digits, apply the original sign back. 🔁
+* Check if the result is within the **32-bit integer range**. ⚠️
+
+  * If outside range → return `0`
+  * Else → return reversed number ✅
+
+
+### ⏱️ Time Complexity:
+
+**O(log₁₀(n))** 🚀
+
+* Because we process each digit of the number once.
+* Number of digits in `n` = `log₁₀(n)`
+
+Example:
+12345 → 5 digits → 5 iterations
+
+
+### 💾 Space Complexity:
+
+**O(1)** 🧠
+
+* Only constant variables are used:
+
+  * `sign`
+  * `n`
+  * `revn`
+  * `lastd`
+
+No extra data structure is used. ✅
+
+
 
