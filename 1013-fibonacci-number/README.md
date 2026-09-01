@@ -40,41 +40,39 @@ F(n) = F(n - 1) + F(n - 2), for n &gt; 1.
 </ul>
 
 
-## 🔄 Approach: Recursive Fibonacci
+🔄 Approach: Sliding Window + Sorting
 
-[svg](https://github.com/Kat2Ki/DSA-PREP-py-/tree/main/8-fibonacci-number#-approach-recursive-fibonacci)
 
-### 💡 Idea:
 
-[svg](https://github.com/Kat2Ki/DSA-PREP-py-/tree/main/8-fibonacci-number#-idea)
 
-* Fibonacci follows the formula **`F(n) = F(n-1) + F(n-2)`**. 🔢
-* For `n = 0` or `n = 1`, the answer is already known:
+💡 Idea:
 
-  * `F(0) = 0`
-  * `F(1) = 1`
-* These conditions form the **base case**, which stops the recursion. 🛑
-* For `n > 1`, call the function recursively for:
 
-  * `n - 1`
-  * `n - 2`
-* Add both results to get `F(n)`. ➕
-* The recursion continues until it reaches the base cases. 🔁
 
-### ⏱️ Time Complexity:
 
-[svg](https://github.com/Kat2Ki/DSA-PREP-py-/tree/main/8-fibonacci-number#%EF%B8%8F-time-complexity)
+First, sort the array so that the largest element of the current window is nums[right].
+Use a sliding window from left to right.
+total stores the sum of all elements inside the current window.
 
-**O(2ⁿ)** 🚀
+To make every element equal to nums[right], the required operations are:
 
-* Each function call creates **two more recursive calls**.
-* Many Fibonacci values are calculated repeatedly.
+nums[right] × window_size - total
 
-### 💾 Space Complexity:
+If the required operations are greater than k, shrink the window from the left.
+Keep updating ans with the largest valid window size.
+⏱️ Time Complexity:
 
-[svg](https://github.com/Kat2Ki/DSA-PREP-py-/tree/main/8-fibonacci-number#-space-complexity)
 
-**O(n)** 🧠
 
-* The maximum depth of the recursive call stack is `n`.
-* No extra data structure is used. ✅
+
+Sorting takes O(n log n).
+The sliding window takes O(n).
+Overall: O(n log n).
+💾 Space Complexity:
+
+
+
+
+Only a few variables are used.
+Sorting is done in-place.
+Overall: O(1) auxiliary space.
