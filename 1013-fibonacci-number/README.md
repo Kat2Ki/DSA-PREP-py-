@@ -38,3 +38,43 @@ F(n) = F(n - 1) + F(n - 2), for n &gt; 1.
 <ul>
 	<li><code>0 &lt;= n &lt;= 30</code></li>
 </ul>
+
+
+## 🔄 Approach: Recursive Fibonacci
+
+[svg](https://github.com/Kat2Ki/DSA-PREP-py-/tree/main/8-fibonacci-number#-approach-recursive-fibonacci)
+
+### 💡 Idea:
+
+[svg](https://github.com/Kat2Ki/DSA-PREP-py-/tree/main/8-fibonacci-number#-idea)
+
+* Fibonacci follows the formula **`F(n) = F(n-1) + F(n-2)`**. 🔢
+* For `n = 0` or `n = 1`, the answer is already known:
+
+  * `F(0) = 0`
+  * `F(1) = 1`
+* These conditions form the **base case**, which stops the recursion. 🛑
+* For `n > 1`, call the function recursively for:
+
+  * `n - 1`
+  * `n - 2`
+* Add both results to get `F(n)`. ➕
+* The recursion continues until it reaches the base cases. 🔁
+
+### ⏱️ Time Complexity:
+
+[svg](https://github.com/Kat2Ki/DSA-PREP-py-/tree/main/8-fibonacci-number#%EF%B8%8F-time-complexity)
+
+**O(2ⁿ)** 🚀
+
+* Each function call creates **two more recursive calls**.
+* Many Fibonacci values are calculated repeatedly.
+
+### 💾 Space Complexity:
+
+[svg](https://github.com/Kat2Ki/DSA-PREP-py-/tree/main/8-fibonacci-number#-space-complexity)
+
+**O(n)** 🧠
+
+* The maximum depth of the recursive call stack is `n`.
+* No extra data structure is used. ✅
