@@ -40,39 +40,27 @@ F(n) = F(n - 1) + F(n - 2), for n &gt; 1.
 </ul>
 
 
-🔄 Approach: Sliding Window + Sorting
-
-
-
+🔄 Approach: Sorting + Sliding Window
 
 💡 Idea:
 
+Sort the array so the largest element of the current window is nums[right].
+Use two pointers, left and right, to maintain a sliding window.
+total stores the sum of elements inside the window.
+To make every element equal to nums[right], calculate:
+nums[right] * window_size - total
+If the required operations are greater than k, shrink the window by moving left.
+Keep track of the maximum valid window size.
 
-
-
-First, sort the array so that the largest element of the current window is nums[right].
-Use a sliding window from left to right.
-total stores the sum of all elements inside the current window.
-
-To make every element equal to nums[right], the required operations are:
-
-nums[right] × window_size - total
-
-If the required operations are greater than k, shrink the window from the left.
-Keep updating ans with the largest valid window size.
 ⏱️ Time Complexity:
-
-
-
-
 Sorting takes O(n log n).
 The sliding window takes O(n).
 Overall: O(n log n).
+
 💾 Space Complexity:
+Uses only a few extra variables.
+Sorting is performed in-place.
+Overall: O(1) auxiliary space.
 
-
-
-
-Only a few variables are used.
 Sorting is done in-place.
 Overall: O(1) auxiliary space.
