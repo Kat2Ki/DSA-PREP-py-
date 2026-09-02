@@ -40,3 +40,30 @@
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+## 🔄 Approach: Hashing / Set
+
+[<img src="https://img.shields.io/badge/Approach-Hashing-blue?style=flat-square" />](#approach-hashing--set)
+
+### 💡 Idea:
+
+[<img src="https://img.shields.io/badge/Idea-Set-orange?style=flat-square" />](#idea)
+
+* Create a `set` called `seen` to store elements we have already encountered.
+* Traverse the array one element at a time.
+* If the current element is already in `seen`, a duplicate exists → return `True`.
+* Otherwise, add the current element to `seen`.
+* If the entire loop finishes without finding a duplicate, return `False`.
+
+### ⏱️ Time Complexity:
+
+[<img src="https://img.shields.io/badge/Time-O(n)-green?style=flat-square" />](#time-complexity)
+
+* **O(n)** — We traverse the array once.
+* Set lookup and insertion take **O(1)** average time.
+
+### 💾 Space Complexity:
+
+[<img src="https://img.shields.io/badge/Space-O(n)-purple?style=flat-square" />](#space-complexity)
+
+* **O(n)** — In the worst case, the set stores all `n` elements.
