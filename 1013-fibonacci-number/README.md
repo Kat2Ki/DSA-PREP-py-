@@ -40,27 +40,25 @@ F(n) = F(n - 1) + F(n - 2), for n &gt; 1.
 </ul>
 
 
-🔄 Approach: Sorting + Sliding Window
-
+🔄 Approach: Recursive Fibonacci
 💡 Idea:
-
-Sort the array so the largest element of the current window is nums[right].
-Use two pointers, left and right, to maintain a sliding window.
-total stores the sum of elements inside the window.
-To make every element equal to nums[right], calculate:
-nums[right] * window_size - total
-If the required operations are greater than k, shrink the window by moving left.
-Keep track of the maximum valid window size.
+Fibonacci follows the formula F(n) = F(n-1) + F(n-2). 🔢
+For n = 0 or n = 1, the answer is already known:
+F(0) = 0
+F(1) = 1
+These conditions form the base case, which stops the recursion. 🛑
+For n > 1, call the function recursively for:
+n - 1
+n - 2
+Add both results to get F(n). ➕
+The recursion continues until it reaches the base cases. 🔁
 
 ⏱️ Time Complexity:
-Sorting takes O(n log n).
-The sliding window takes O(n).
-Overall: O(n log n).
+O(2ⁿ) 🚀
+Each function call creates two more recursive calls.
+Many Fibonacci values are calculated repeatedly.
 
 💾 Space Complexity:
-Uses only a few extra variables.
-Sorting is performed in-place.
-Overall: O(1) auxiliary space.
-
-Sorting is done in-place.
-Overall: O(1) auxiliary space.
+O(n) 🧠
+The maximum depth of the recursive call stack is n.
+No extra data structure is used. ✅
