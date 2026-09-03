@@ -36,11 +36,11 @@ You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
 
 # 🔄 Approach: Array Traversal + Counting Breaks
 
-[<svg ...>](#approach)
+
 
 ### 💡 Idea:
 
-[<svg ...>](#idea)
+
 
 * A sorted array should have elements in **non-decreasing order**.
 * After rotation, there can be **at most one point** where the order decreases.
@@ -52,13 +52,13 @@ You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
 
 ### ⏱️ Time Complexity:
 
-[<svg ...>](#time-complexity)
+
 
 **O(n)** — We traverse the array once.
 
 ### 💾 Space Complexity:
 
-[<svg ...>](#space-complexity)
+
 
 **O(1)** — Only a `count` variable is used; no extra array is created.
 
