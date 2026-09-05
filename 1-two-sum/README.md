@@ -39,3 +39,25 @@
 
 <p>&nbsp;</p>
 <strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face="monospace">&nbsp;</font>time complexity?
+
+
+🔄 Approach: Hash Map / Dictionary
+
+💡 Idea:
+Create an empty dictionary seen to store number → index.
+Traverse the array using its index.
+For each number, calculate the number we need:
+needed = target - nums[i]
+Check if needed already exists in seen.
+If it exists, return:
+[seen[needed], i]
+Otherwise, store the current number and its index:
+seen[nums[i]] = i
+This also handles duplicates like [3,3] because the first 3 is stored before reaching the second one.
+⏱️ Time Complexity:
+
+O(n) — We traverse the array once.
+Dictionary lookup is O(1) on average.
+💾 Space Complexity:
+
+O(n) — In the worst case, we store every element in the dictionary.
