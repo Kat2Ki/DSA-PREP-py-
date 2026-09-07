@@ -49,3 +49,39 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 	<li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
+
+
+# 🔄 Approach: Two Pointers
+
+[<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM6.94 4.5 11 8l-4.06 3.5v-2.25H5V6.75h1.94V4.5Z"/></svg>](#-idea)
+
+### 💡 Idea:
+
+[<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM6.94 4.5 11 8l-4.06 3.5v-2.25H5V6.75h1.94V4.5Z"/></svg>](#-idea)
+
+* The array is already sorted, so duplicate elements are next to each other.
+* Use **two pointers**:
+
+  * `i` → scans through the array.
+  * `k` → keeps track of the position of the last unique element.
+* Start `k = 0` because the first element is always unique.
+* Start scanning from index `1`.
+* If `nums[i] != nums[k]`, we found a new unique element:
+
+  * Increment `k`.
+  * Store `nums[i]` at `nums[k]`.
+* Return `k + 1` because `k` represents the **index**, while we need the **count** of unique elements.
+* The elements after index `k` can be ignored.
+
+### ⏱️ Time Complexity:
+
+[<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM6.94 4.5 11 8l-4.06 3.5v-2.25H5V6.75h1.94V4.5Z"/></svg>](#-time-complexity)
+
+**O(n)** — We scan the array once.
+
+### 💾 Space Complexity:
+
+[<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM6.94 4.5 11 8l-4.06 3.5v-2.25H5V6.75h1.94V4.5Z"/></svg>](#-space-complexity)
+
+**O(1)** — We modify the array in-place and use only pointer variables.
+
