@@ -89,10 +89,3 @@ RETURN maximum
 
 `O(1)` — Only two variables are used regardless of the input size.
 
-### ⚠️ Key Learning:
-
-* `i` → represents the **index**.
-* `nums[i]` → represents the **element/value** at that index.
-* `current` → tracks the **current streak**.
-* `maximum` → tracks the **longest streak found so far**.
-* When a `0` appears, reset the current streak.
