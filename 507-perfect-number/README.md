@@ -18,10 +18,26 @@
 <strong>Input:</strong> num = 7
 <strong>Output:</strong> false
 </pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
+	
+🔄 Approach: Divisor Pairs
+A perfect number is a number whose positive divisors, excluding itself, add up to the number.
+
+	
+💡 Idea
+Instead of checking every number from 1 to num, check only up to √num.
+Divisors come in pairs.
+If i divides num, then num // i is its paired divisor.
+Start total = 1 because 1 is a divisor of every number greater than 1.
+If i == num // i, the number is a perfect square, so add it only once.
+Finally, check whether total == num.
+
+⚡ Complexity
+
+Time: O(√n)
+Space: O(1)
 	<li><code>1 &lt;= num &lt;= 10<sup>8</sup></code></li>
 </ul>
