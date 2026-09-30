@@ -23,21 +23,31 @@
 
 <ul>
 	
-🔄 Approach: Divisor Pairs
-A perfect number is a number whose positive divisors, excluding itself, add up to the number.
+# 🔢 Perfect Number
 
-	
-💡 Idea
-Instead of checking every number from 1 to num, check only up to √num.
-Divisors come in pairs.
-If i divides num, then num // i is its paired divisor.
-Start total = 1 because 1 is a divisor of every number greater than 1.
-If i == num // i, the number is a perfect square, so add it only once.
-Finally, check whether total == num.
+[![LeetCode](https://img.shields.io/badge/LeetCode-Perfect%20Number-orange)](https://leetcode.com/problems/perfect-number/)
 
-⚡ Complexity
+### 🔄 Approach: Divisor Pairs
 
-Time: O(√n)
-Space: O(1)
+### 💡 Idea:
+
+* A perfect number is equal to the sum of its positive divisors **excluding itself**.
+* Instead of checking every number from `1` to `num`, we check only up to `√num`.
+* Divisors always come in pairs:
+
+  * `i`
+  * `num // i`
+* If `i` divides `num`, add both divisors to `total`.
+* If `i == num // i`, it is a perfect-square divisor, so add it only once.
+* Start `total = 1` because `1` is always a proper divisor for `num > 1`.
+* Finally, check whether `total == num`.
+
+### ⏱️ Time Complexity
+
+`O(√n)`
+
+### 💾 Space Complexity
+
+`O(1)`
 	<li><code>1 &lt;= num &lt;= 10<sup>8</sup></code></li>
 </ul>
