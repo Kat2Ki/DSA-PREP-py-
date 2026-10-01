@@ -30,20 +30,23 @@
 	<li><code>0 &lt;= n &lt;= 5 * 10<sup>6</sup></code></li>
 </ul>
 
-# 🔢 Count Primes
-
-### 🔄 Approach: Sieve of Eratosthenes
+# 🔢 Check for Prime Number
 
 ### 💡 Idea:
+- A prime number has exactly two factors: `1` and itself.
+- Numbers less than `2` are not prime.
+- We only check divisors up to `√n` because if `n` has a factor greater than `√n`, its corresponding factor must be smaller than `√n`.
+- If any number from `2` to `√n` divides `n`, return `False`.
+- Otherwise, return `True`.
 
-* Use the **Sieve of Eratosthenes** to efficiently find all prime numbers less than `n`.
-* Initially consider every number as prime, then mark `0` and `1` as non-prime.
-* For each number that is still prime, mark all of its multiples as non-prime.
-* Start marking multiples from `i × i`, since smaller multiples have already been handled by smaller prime numbers.
-* Only process numbers up to `√n`.
-* Finally, count the numbers that remain marked as prime.
+### 🔄 Approach:
+**Trial Division up to √n**
 
 ### ⏱️ Time Complexity:
+`O(√n)`
+
+### 💾 Space Complexity:
+`O(1)`
 
 **O(n log log n)**
 
