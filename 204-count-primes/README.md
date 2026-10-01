@@ -30,19 +30,23 @@
 	<li><code>0 &lt;= n &lt;= 5 * 10<sup>6</sup></code></li>
 </ul>
 
-🔄 Approach: Sieve of Eratosthenes
-💡 Idea:
-We need to count all prime numbers strictly less than n.
-Initially, assume every number is prime.
-0 and 1 are not prime, so mark them False.
-Start from 2.
-If i is still marked True, then i is prime.
-Mark all multiples of i as False because they cannot be prime.
-Start marking from i × i because smaller multiples have already been handled by smaller prime numbers.
-We only need to process numbers up to √n.
-Finally, sum(prime) counts the remaining True values because True = 1 and False = 0.
+# 🔢 Count Primes
 
-⏱️ Complexity
+### 🔄 Approach: Sieve of Eratosthenes
 
-Time: O(n log log n)
-Space: O(n)
+### 💡 Idea:
+
+* Use the **Sieve of Eratosthenes** to efficiently find all prime numbers less than `n`.
+* Initially consider every number as prime, then mark `0` and `1` as non-prime.
+* For each number that is still prime, mark all of its multiples as non-prime.
+* Start marking multiples from `i × i`, since smaller multiples have already been handled by smaller prime numbers.
+* Only process numbers up to `√n`.
+* Finally, count the numbers that remain marked as prime.
+
+### ⏱️ Time Complexity:
+
+**O(n log log n)**
+
+### 💾 Space Complexity:
+
+**O(n)**
