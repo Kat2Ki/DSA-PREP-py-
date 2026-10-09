@@ -34,3 +34,34 @@
 	<li><code>1 &lt;= num.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>num</code> only consists of digits and does not contain any leading zeros.</li>
 </ul>
+
+# 🔢 Largest Odd Number
+
+### 💡 Idea:
+- We need to find the **largest-valued odd number** that is a substring of `num`.
+- An integer is odd if its **last digit is odd**.
+- Start checking the string from **right → left**.
+- Find the **rightmost odd digit**.
+- Once found, take the substring from the beginning up to that digit.
+- If no odd digit exists, return `""`.
+
+### 🔄 Approach:
+1. Start from the last index of `num`.
+2. Move backwards through the string.
+3. Check whether the current digit is odd using:
+   ```python
+   int(num[i]) % 2 == 1
+   ```
+4. If it is odd, return:
+   ```python
+   num[0:i+1]
+   ```
+5. If the loop finishes without finding an odd digit, return `""`.
+
+
+### ⏱️ Time Complexity:
+**O(n)** — in the worst case, we scan every digit once.
+
+### 💾 Space Complexity:
+**O(1)** auxiliary space.
+
