@@ -22,6 +22,39 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
+## 🔄 Approach: Character-by-Character Comparison
+
+### 💡 Idea
+- Take the first string as the reference.
+- Compare characters at the same index across all strings.
+- If a character mismatches or a string ends, return the prefix found so far.
+- Otherwise, add the matching character to the prefix.
+
+### 📝 Pseudocode
+```text
+ref = first string
+prefix = ""
+
+FOR each index i in ref:
+    char = ref[i]
+
+    FOR each string in strs:
+        IF i >= length(string) OR string[i] != char:
+            RETURN prefix
+
+    prefix += char
+
+RETURN prefix
+```
+
+### ⏱️ Complexity
+- **Time:** O(n × m)
+- **Space:** O(1) auxiliary space
+
+Where `n` = number of strings and `m` = length of the first string.
+
+	
 	<li><code>1 &lt;= strs.length &lt;= 200</code></li>
 	<li><code>0 &lt;= strs[i].length &lt;= 200</code></li>
 	<li><code>strs[i]</code> consists of only lowercase English letters if it is non-empty.</li>
