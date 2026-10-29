@@ -45,8 +45,41 @@
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
+
+
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>t.length == s.length</code></li>
 	<li><code>s</code> and <code>t</code> consist of any valid ascii character.</li>
 </ul>
+
+<h2>Approach 💡</h2>
+<ul>
+	<li>Create two dictionaries: <code>mapping</code> for mapping characters from <code>s</code> to <code>t</code>, and <code>reverse_mapping</code> for mapping characters from <code>t</code> to <code>s</code>.</li>
+	<li>Iterate through both strings using their indices.</li>
+	<li>Check if a character in <code>s</code> is already mapped to a different character in <code>t</code>. If yes, return <code>False</code>.</li>
+	<li>Check if a character in <code>t</code> is already mapped to a different character in <code>s</code>. If yes, return <code>False</code>.</li>
+	<li>Store the mappings in both dictionaries.</li>
+	<li>If all characters follow the mapping rules, return <code>True</code>.</li>
+</ul>
+
+<h2>Pseudocode 📝</h2>
+<pre><code>Create an empty mapping dictionary
+Create an empty reverse_mapping dictionary
+
+For each index i from 0 to length of s - 1:
+
+    If s[i] exists in mapping AND mapping[s[i]] != t[i]:
+        Return False
+
+    If t[i] exists in reverse_mapping AND reverse_mapping[t[i]] != s[i]:
+        Return False
+
+    mapping[s[i]] = t[i]
+    reverse_mapping[t[i]] = s[i]
+
+Return True
+</code></pre>
+
+<h2>Time Complexity ⏱️</h2>
+<p><strong>O(n)</strong> &mdash; We traverse the strings once, and dictionary operations take O(1) average time.</p>
